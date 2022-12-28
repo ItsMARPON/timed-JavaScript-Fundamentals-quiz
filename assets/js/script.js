@@ -1,85 +1,41 @@
-var todoInput = document.querySelector("#multipleAnswers");
-var todoForm = document.querySelector("#question-form");
-var todoCountSpan = document.querySelector("#score-count");
+var answerInput = document.querySelector("#multipleAnswers");
+var questionForm = document.querySelector("#question-form");
+var scoreCount = document.querySelector("#score-count");
+var timerTiktok = document.querySelector(".time");
 
-var todos = [];
+var totalScore = [];
+// The following code is to set the timer for the quiz
+var secondsRemaining = 500;
 
-// The following function renders items in a todo list as <li> elements
-function renderTodos() {
-  // Clear todoList element and update todoCountSpan
-  todoList.innerHTML = "";
-  todoCountSpan.textContent = todos.length;
+function setTime() {
+  var timerInterval = setInterval(function() {
+    secondsRemaining--;
+    timerTiktok.textContent = secondsRemaining;
 
-  // Render a new li for each todo
-  for (var i = 0; i < todos.length; i++) {
-    var todo = todos[i];
+    if(secondsRemaining === 0) {
+      clearInterval(timerInterval);
+    }
 
-    var li = document.createElement("li");
-    li.textContent = todo;
-    li.setAttribute("data-index", i);
-
-    var button = document.createElement("button");
-    button.textContent = "Complete ✔️";
-
-    li.appendChild(button);
-    todoList.appendChild(li);
-  }
+  }, 1000);
 }
+setTime()
 
-// This function is being called below and will run when the page loads.
-function init() {
-  // Get stored todos from localStorage
-  var storedTodos = JSON.parse(localStorage.getItem("todos"));
+// The following code is to create a list of multiple choice questions
+var listEl = document.createElement("ol");
 
-  // If todos were retrieved from localStorage, update the todos array to it
-  if (storedTodos !== null) {
-    todos = storedTodos;
-  }
+var li1 = document.createElement("li");
+var li2 = document.createElement("li");
+var li3 = document.createElement("li");
+var li4 = document.createElement("li");
 
-  // This is a helper function that will render todos to the DOM
-  renderTodos();
-}
+questionForm.appendChild(listEl);
 
-function storeTodos() {
-  // Stringify and set key in localStorage to todos array
-  localStorage.setItem("todos", JSON.stringify(todos));
-}
+listEl.appendChild(li1);
+listEl.appendChild(li2);
+listEl.appendChild(li3);
+listEl.appendChild(li4);
 
-// Add submit event to form
-todoForm.addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  var todoText = todoInput.value.trim();
-
-  // Return from function early if submitted todoText is blank
-  if (todoText === "") {
-    return;
-  }
-
-  // Add new todoText to todos array, clear the input
-  todos.push(todoText);
-  todoInput.value = "";
-
-  // Store updated todos in localStorage, re-render the list
-  storeTodos();
-  renderTodos();
-});
-
-// Add click event to todoList element
-todoList.addEventListener("click", function(event) {
-  var element = event.target;
-
-  // Checks if element is a button
-  if (element.matches("button") === true) {
-    // Get its data-index value and remove the todo element from the list
-    var index = element.parentElement.getAttribute("data-index");
-    todos.splice(index, 1);
-
-    // Store updated todos in localStorage, re-render the list
-    storeTodos();
-    renderTodos();
-  }
-});
-
-// Calls init to retrieve data and render it to the page on load
-init()
+li1.textContent = "Booleans";
+li2.textContent = "numbers";
+li3.textContent = "strings";
+li4.textContent = "All the Above";
