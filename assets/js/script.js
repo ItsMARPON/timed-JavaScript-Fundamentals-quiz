@@ -2,7 +2,7 @@ var answerInput = document.querySelector("#multipleAnswers");
 var questionForm = document.querySelector("#question-form");
 var scoreCount = document.querySelector("#score");
 var timerTiktok = document.querySelector(".time");
-
+var submitButton = document.querySelector("#submit");
 
 var count = 0;
 
@@ -22,6 +22,9 @@ function setTime() {
   }, 1000);
 }
 setTime()
+
+// The code is listen for clicks on submit button
+// submitButton.addEventListener("click", );
 
 // The following code is to create a list of multiple choice questions
 var listEl = document.createElement("ol");
