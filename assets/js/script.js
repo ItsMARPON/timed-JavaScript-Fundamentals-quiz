@@ -1,7 +1,10 @@
 var answerInput = document.querySelector("#multipleAnswers");
 var questionForm = document.querySelector("#question-form");
-var scoreCount = document.querySelector("#score-count");
+var scoreCount = document.querySelector("#score");
 var timerTiktok = document.querySelector(".time");
+
+
+var count = 0;
 
 var totalScore = [];
 // The following code is to set the timer for the quiz
@@ -39,3 +42,16 @@ li1.textContent = "Booleans";
 li2.textContent = "numbers";
 li3.textContent = "strings";
 li4.textContent = "All the Above";
+
+//code is to assign points to correct answers
+if(answerInput === li4) {
+  console.log(scoreCount === 5);
+} else {
+  console.log(scoreCount === 0);
+}
+
+// code is to add score to total score count
+function calculateTotal(total, scoreCount) {
+  return parseFloat(total) + parseFloat(scoreCount);
+}
+calculateTotal()

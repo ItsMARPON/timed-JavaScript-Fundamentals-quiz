@@ -17,6 +17,14 @@ label, p {
   font-size: 30px;
 }
 
+button {
+  padding: 10px;
+  margin: 24px;
+  cursor: pointer;
+  font-size: 12px;
+  background-color: #de8013;
+  color: rgb(12, 12, 12);
+}
 .card {
   display: block;
   background-color:	#fffffe;
