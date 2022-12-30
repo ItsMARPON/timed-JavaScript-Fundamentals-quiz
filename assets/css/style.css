@@ -1,28 +1,40 @@
 
 h1 {
-  text-align: right;
+  font-size: 25px;
 }
 
-h2,
-h3 {
-  text-align: center;
-}
 body {
-  font-family: "Roboto", sans-serif;
-  background-color: #ffffff;
+  font-family: "Montserrat", "Poppins";
+  padding: 10px;
+  margin: 80px 150px;
+  display: flex;
+  height: max-content;
+  width: max-content;
+  justify-content: center;
+  align-items: center;
+  background-color: #ed41ab;
   color: #001b44;
 }
 
-label, p {
-  font-size: 30px;
+#time {
+  align-content:flex-end;
 }
 
-button {
+#start-button {
   padding: 10px;
   margin: 24px;
   cursor: pointer;
   font-size: 12px;
-  background-color: #de8013;
+  background-color: #4ceb79;
+  color: rgb(12, 12, 12);
+}
+
+#submit-next-btn {
+  padding: 10px;
+  margin: 24px;
+  cursor: pointer;
+  font-size: 12px;
+  background-color: #e2ef37;
   color: rgb(12, 12, 12);
 }
 .card {

@@ -7,23 +7,23 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Timed JavaScript Fundamentals Quiz</title>
 </head>
-<body>
-    <h1 class="time" style="text-align: right;"></h1>
-    <h2>Timed JavaScript Fundamentals Quiz</h2>
-    <div class="card">
-        <h3>Question 1</h3>
-        <form id="question-form">
-          <label for="multipleAnswers">Arrays can store what value?</label>
-          <p>
-          <input type="text" name="multipleAnswers" id="multipleAnswers" />
-        </p>
-        <button id="submit">submit answer</button>
-        </form
 
-        <p>Score: <span id="score"> 0 </span></p>
+<body>
+    <div class="card">
+        <h1>Ready to take the timed JavaScript Fundamentals Quiz?</h1>
+        <button id ="start-button" class="btn btn-start">Proceed to Quiz</button>
         
-    
-    </div>  
+    <div class="container">
+        <div id="time" class="hide"></div>
+        <div id="questions" class="hide"></div>
+          <div id="multipleAnswers"></div>
+            <ol></ol>
+            <button id="submit-next-btn" class="hide">next</button>
+            <div>Score: <span id ="score" class="hide">0</span></div>
+        </div>
+    </div>
+
+
 
     <script src="./assets/js/script.js"></script>
 </body>
