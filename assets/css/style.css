@@ -36,10 +36,30 @@ body {
   padding: 10px;
   margin: 24px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 20px;
   background-color: #e2ef37;
   color: rgb(12, 12, 12);
 }
+
+#questions {
+  font-size: 30px;
+}
+
+#mult-choice {
+  cursor: pointer;
+  font-size: 25px;
+
+}
+
+#submit-next-btn {
+  text-align: end;
+}
+
+#score {
+ text-align: end;
+ font-size: medium;
+}
+
 .card {
   display: block;
   background-color:	#fffffe;
@@ -55,3 +75,4 @@ body {
 .hide {
   display: none;
 }
+
