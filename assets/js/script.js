@@ -3,6 +3,8 @@ var scoreCount = document.querySelector("#score");
 var timerTiktok = document.querySelector("#time");
 var submitButton = document.querySelector("#submit-next-btn");
 var startButton = document.querySelector("#start-button");
+var startQuiz = document.querySelector("#start-page");
+var questionsQuiz = document.querySelector("#questions");
 
 var count = 0;
 
@@ -17,12 +19,19 @@ var questionFive = "What are common methods for array functions?"
 
 
 // The following code is to start the quiz
+
 startButton.addEventListener("click", function() {
-  console.log("click");
+  startQuiz.classList.add('hide');
+  startButton.classList.add('hide');
+  questionsQuiz.classList.remove('hide');
+  timerTiktok.classList.remove('hide');
+setTime();
+firstQuestion();
 });
 
+
 // The following code is to set the timer for the quiz
-var secondsRemaining = 500;
+var secondsRemaining = 10;
 
 function setTime() {
   var timerInterval = setInterval(function() {
@@ -33,17 +42,22 @@ function setTime() {
       clearInterval(timerInterval);
     }
 
-  }, 1000);
-}
-setTime()
+  }, 1200);
+};
 
 // The following code is to display next question
+function firstQuestion(()=> {
+
+}
+);
 
 // The following code is to select answer
 
 
 // submitButton.addEventListener("click", );
 /*
+
+
 // The following code is to create a list of multiple choice answers for 5 questions
 // Multiple Choice answers 1
 var listEl = document.createElement("ol");

@@ -5,6 +5,7 @@ h1 {
 
 body {
   font-family: "Montserrat", "Poppins";
+  font-size: 20px;
   padding: 10px;
   margin: 80px 150px;
   display: flex;
@@ -17,7 +18,9 @@ body {
 }
 
 #time {
-  align-content:flex-end;
+  text-align: right;
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #start-button {
@@ -47,4 +50,8 @@ body {
   margin: 60px auto;
   padding: 20px;
   width: 80vw;
+}
+
+.hide {
+  display: none;
 }
