@@ -32,7 +32,7 @@ firstQuestion();
 
 
 // The following code is to set the timer for the quiz
-var secondsRemaining = 60;
+var secondsRemaining = 120;
 
 function setTime() {
   var timerInterval = setInterval(function() {
@@ -43,7 +43,7 @@ function setTime() {
       clearInterval(timerInterval);
     }
 
-  }, 1200);
+  }, 1000);
 };
 
 var listEl = document.createElement("ol");
@@ -62,7 +62,6 @@ function firstQuestion () {
 listEl.appendChild(li1).addEventListener("click", function(){
   li1.setAttribute("style", "font-size: 25px; font-weight: bold; text-decoration: underline;")
   console.log("clicked choice 1");
-
 });
 listEl.appendChild(li2).addEventListener("click", function (){
   li2.setAttribute("style", "font-size: 25px; font-weight: bold; text-decoration: underline;")
@@ -83,38 +82,75 @@ li2.textContent = "Numbers";
 li3.textContent = "Strings";
 li4.textContent = "All the Above";
 
+submitButton.addEventListener("click", function(){
+console.log("submit answer");
+resetQuiz();
+})
 };
 
 
 // the following code is to reset state and start next question and multiple choice
 
-/*
+
 function resetQuiz () {
   submitButton.classList.add('hide');
+  questionsQuiz.classList.add('hide');
+  questionsQuiz.remove(questionOne);
+  timerTiktok.classList.add('hide');
+  multipleChoice.classList.add('hide');
   console.log("delete button worked");
+  nextQuestion2();
 }
 
-// The following code is to select answer
-submitButton.addEventListener("click", function(event) {
-  var element = event.target;
-  console.log("event");
-});
-*/
+// To start the next set of question and multiple choice answers
 
+function nextQuestion2 () {
+    questionsQuiz.append(questionTwo);
+    questionsQuiz.classList.remove('hide');
+    timerTiktok.classList.remove('hide');
+    submitButton.classList.remove('hide');
+    multipleChoice.classList.remove('hide');
+
+  setTime();
+  secondQuestion();
+};
+
+// The following code is to display first question and multiple choice answers
+function secondQuestion () {
+  questionsQuiz.append(questionTwo);
+  multipleChoice.appendChild(listEl);
+ 
+ 
+ listEl.appendChild(li1).addEventListener("click", function(){
+   li1.setAttribute("style", "font-size: 25px; font-weight: bold; text-decoration: underline;")
+   console.log("clicked choice 1");
+ });
+ listEl.appendChild(li2).addEventListener("click", function (){
+   li2.setAttribute("style", "font-size: 25px; font-weight: bold; text-decoration: underline;")
+  console.log("clicked choice 2");
+ });
+ listEl.appendChild(li3).addEventListener("click", function (){
+   li3.setAttribute("style", "font-size: 25px; font-weight: bold; text-decoration: underline;")
+   console.log("clicked choice 3");
+ });
+ listEl.appendChild(li4).addEventListener("click", function (){
+   li4.setAttribute("style", "font-size: 25px; font-weight: bold; text-decoration: underline;")
+   console.log("clicked choice 4");
+   }
+ );
+ 
+ li1.textContent = "Brackets";
+ li2.textContent = "parenthesis";
+ li3.textContent = "quotes";
+ li4.textContent = "curly brackets";
+ 
+ submitButton.addEventListener("click", function(){
+ console.log("submit answer");
+ resetQuiz();
+ })
+ };
+ 
 /*
-// Multiple Choice answers 2
-
-answerInput.appendChild(listEl);
-
-listEl.appendChild(li1);
-listEl.appendChild(li2);
-listEl.appendChild(li3);
-listEl.appendChild(li4);
-
-li1.textContent = "Brackets";
-li2.textContent = "parenthesis";
-li3.textContent = "quotes";
-li4.textContent = "curly brackets";
 
 // Multiple Choice answers 3
 
