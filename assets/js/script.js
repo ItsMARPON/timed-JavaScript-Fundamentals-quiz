@@ -7,25 +7,17 @@ var questionsQuiz = document.querySelector("#questions");
 var multipleChoice = document.querySelector("#mult-choice");
 var quizContainer = document.querySelector(".container");
 
-// var count = 0;
-
-// var count = localStorage.getItem("count");
+var scoreLocal = localStorage.getItem("score") || [];
 
 var score = 0;
 
-// scoreCount.textContent = count;
+scoreCount.textContent = score;
 
 var questionOne = "Arrays can store what type of values?";
 var questionTwo = "The condition of an if/else statement is enclosed with?";
 var questionThree = "The script.js link should be located where?";
 var questionFour = "Can arrays be mutated?";
-var questionFive = "What are common methods for array functions?";
-
-// const removeChilds = (parent) => {
-//   while (parent.lastChild) {
-//     parent.removeChild(parent.lastChild);
-//   }
-// };
+var questionFive = "What is not a common method for array functions?";
 
 // The following code is to start the quiz
 startButton.addEventListener("click", function () {
@@ -95,7 +87,7 @@ function firstQuestion() {
       "font-size: 25px; font-weight: bold; text-decoration: underline;"
     );
     console.log("clicked choice 4");
-    score += 1;
+    score += 5;
   });
 
   li1.textContent = "Booleans";
@@ -114,7 +106,6 @@ function firstQuestion() {
 function resetQuiz1() {
   submitButton.classList.add("hide");
   questionsQuiz.classList.add("hide");
-  // questionsQuiz.remove(questionOne);
   timerTiktok.classList.add("hide");
   multipleChoice.classList.add("hide");
   li1.removeAttribute(
@@ -137,24 +128,11 @@ function resetQuiz1() {
   secondQuestion();
 }
 
-// To start the next set of question and multiple choice answers
-/*
-function nextQuestion2 () {
-    // questionsQuiz.classList('hide');
-    timerTiktok.classList.remove('hide');
-    submitButton.classList.remove('hide');
-    multipleChoice.classList.remove('hide');
-    questionsQuiz.append(questionTwo);
-
-  setTime();
-  secondQuestion();
-};
-*/
 // The following code is to display second question and multiple choice answers
 function secondQuestion() {
   questionsQuiz.classList.remove("hide");
   questionsQuiz.textContent = questionTwo;
-  var correctAnswer2 = "Brackets";
+  var correctAnswer2 = "curly braces";
   multipleChoice.appendChild(listEl);
   submitButton.classList.remove("hide");
   multipleChoice.classList.remove("hide");
@@ -166,7 +144,6 @@ function secondQuestion() {
       "font-size: 25px; font-weight: bold; text-decoration: underline;"
     );
     console.log("clicked choice 1");
-    score += 1;
   });
   listEl.appendChild(li2).addEventListener("click", function () {
     li2.setAttribute(
@@ -188,12 +165,13 @@ function secondQuestion() {
       "font-size: 25px; font-weight: bold; text-decoration: underline;"
     );
     console.log("clicked choice 4");
+    score += 5;
   });
 
   li1.textContent = "Brackets";
   li2.textContent = "parenthesis";
   li3.textContent = "quotes";
-  li4.textContent = "curly brackets";
+  li4.textContent = "curly braces";
 
   submitButton.addEventListener("click", function () {
     console.log("submit answer");
@@ -228,24 +206,11 @@ function resetQuiz2() {
   thirdQuestion();
 }
 
-// To start the next set of question and multiple choice answers
-
-// function nextQuestion3 () {
-//     questionsQuiz.classList.remove('hide');
-//     timerTiktok.classList.remove('hide');
-//     submitButton.classList.remove('hide');
-//     multipleChoice.classList.remove('hide');
-//     questionsQuiz.append(questionThree);
-
-//   setTime();
-//   thirdQuestion();
-// };
-
 // The following code is to display third question and multiple choice answers
 function thirdQuestion() {
   questionsQuiz.classList.remove("hide");
   questionsQuiz.textContent = questionThree;
-  var correctAnswer3 = "DOCTYPE";
+  var correctAnswer3 = "</body>";
   multipleChoice.appendChild(listEl);
   submitButton.classList.remove("hide");
   multipleChoice.classList.remove("hide");
@@ -271,6 +236,7 @@ function thirdQuestion() {
       "font-size: 25px; font-weight: bold; text-decoration: underline;"
     );
     console.log("clicked choice 3");
+    score += 5;
   });
   listEl.appendChild(li4).addEventListener("click", function () {
     li4.setAttribute(
@@ -278,7 +244,6 @@ function thirdQuestion() {
       "font-size: 25px; font-weight: bold; text-decoration: underline;"
     );
     console.log("clicked choice 4");
-    score += 1;
   });
 
   li1.textContent = "</head>";
@@ -319,19 +284,6 @@ function resetQuiz4() {
   fourthQuestion();
 }
 
-// To start the next set of question and multiple choice answers
-
-// function nextQuestion4() {
-//   questionsQuiz.classList.remove("hide");
-//   timerTiktok.classList.remove("hide");
-//   submitButton.classList.remove("hide");
-//   multipleChoice.classList.remove("hide");
-//   questionsQuiz.append(questionFour);
-
-//   setTime();
-//   fourthQuestion();
-// }
-
 // The following code is to display fourth question and multiple choice answers
 function fourthQuestion() {
   questionsQuiz.classList.remove("hide");
@@ -355,7 +307,7 @@ function fourthQuestion() {
       "font-size: 25px; font-weight: bold; text-decoration: underline;"
     );
     console.log("clicked choice 2");
-    score += 1;
+    score += 5;
   });
   listEl.appendChild(li3).addEventListener("click", function () {
     li3.setAttribute(
@@ -410,20 +362,6 @@ function resetQuiz5() {
   fifthQuestion();
 }
 
-// To start the next set of question and multiple choice answers
-
-// function nextQuestion5() {
-//     questionsQuiz.classList.remove("hide");
-//   questionsQuiz.textContent = questionThree;
-//   multipleChoice.appendChild(listEl);
-//   submitButton.classList.remove("hide");
-//   multipleChoice.classList.remove("hide");
-//   timerTiktok.classList.remove("hide");
-
-//   setTime();
-//   fifthQuestion();
-// }
-
 // The following code is to display fifth question and multiple choice answers
 function fifthQuestion() {
   questionsQuiz.classList.remove("hide");
@@ -454,7 +392,7 @@ function fifthQuestion() {
       "font-size: 25px; font-weight: bold; text-decoration: underline;"
     );
     console.log("clicked choice 3");
-    score += 1;
+    score += 5;
   });
   listEl.appendChild(li4).addEventListener("click", function () {
     li4.setAttribute(
@@ -470,25 +408,18 @@ function fifthQuestion() {
   li4.textContent = "splice()";
 
   submitButton.addEventListener("click", function () {
+    
+    
     console.log("submit answer");
     endOfQuiz();
   });
-}
+
 
 function endOfQuiz() {
   quizContainer.classList.add("hide");
   console.log(score);
-}
-
-// //code is to assign points to correct answers
-// if(answerInput === li4) {
-//   console.log(scoreCount === 1);
-// } else {
-//   console.log(scoreCount === 0);
-// }
-
-// // code is to add score to total score count
-// function calculateTotal(total, scoreCount) {
-//   return parseFloat(total) + parseFloat(scoreCount);
-// }
-// calculateTotal()
+      document.querySelector("#end-score-message").textContent =
+        lastGrade.student + " scored a total " + lastGrade.score;
+    
+  };
+  
