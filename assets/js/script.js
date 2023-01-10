@@ -6,6 +6,8 @@ var startQuiz = document.querySelector("#start-page");
 var questionsQuiz = document.querySelector("#questions");
 var multipleChoice = document.querySelector("#mult-choice");
 var quizContainer = document.querySelector(".container");
+var endMsg = document.querySelector("#end-page");
+var userInitials = document.querySelector("#initals");
 
 var scoreLocal = localStorage.getItem("score") || [];
 
@@ -408,18 +410,34 @@ function fifthQuestion() {
   li4.textContent = "splice()";
 
   submitButton.addEventListener("click", function () {
-    
-    
     console.log("submit answer");
     endOfQuiz();
   });
-
+}
 
 function endOfQuiz() {
   quizContainer.classList.add("hide");
   console.log(score);
-      document.querySelector("#end-score-message").textContent =
-        lastGrade.student + " scored a total " + lastGrade.score;
-    
-  };
-  
+  displayScore();
+}
+
+function displayScore() {
+  endMsg.classList.remove("hide");
+  endMsg.textContent = " You scored a total " + score;
+}
+
+function displayUser() {
+  // endMsg.classList.remove("hide");
+  var userInitials = localStorage.getItem("initials");
+  userInitials.textContent = initials;
+
+  var nameInitials = document.querySelector("#initials").value;
+  if (nameInitials === "") {
+    displayMessage("error", "Initials cannot be blank");
+  } else {
+    displayMessage("You're done with the quiz!");
+
+    localStorage.setItem("initials", initials);
+  }
+}
+displayUser();
